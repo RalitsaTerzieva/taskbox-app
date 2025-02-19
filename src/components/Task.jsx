@@ -1,10 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Task({task: {id, title, state}, onArchiveTask, onPinTask}) {
     return (
         <div className={`list-item ${state}`}>
-            <label htmlFor="checked" aria-label={`archivedTask-#${id}`} classname="checkbox">
+            <label htmlFor="checked" aria-label={`archivedTask-#${id}`} className="checkbox">
                 <input type="checkbox" disabled={true} value={title} readOnly={true} name="checked" id={`archivedTask-#${id}`} checked={state === "TASK_ARCHIVED"} />
             </label>
             <label htmlFor="title" aria-label={title} className={title}>
