@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function Task({task: {id, title, state}, onArchiveTask, onPinTask}) {
+export default function Task({task: {id, title, state}, onPinTask}) {
     return (
         <div className={`list-item ${state}`}>
             <label htmlFor="checked" aria-label={`archivedTask-#${id}`} className="checkbox">
