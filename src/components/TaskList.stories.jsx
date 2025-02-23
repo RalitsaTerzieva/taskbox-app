@@ -79,10 +79,16 @@ export const WithPinnedTasks = {
 };
 
 export const Loading  = {
-  args: {
-    tasks: [],
-    loading: true,
-  },
+  decorators: [
+    (story) => (
+        
+            <MockStore
+            taskboxState={{...MockState, status: 'loading'}}
+            >
+                {story()}
+            </MockStore>
+    )
+  ]
 };
 
 export const Empty  = {
