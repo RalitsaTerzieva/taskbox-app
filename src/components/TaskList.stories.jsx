@@ -92,10 +92,14 @@ export const Loading  = {
 };
 
 export const Empty  = {
-  args: {
-    // Shaping the stories through args composition.
-    // Inherited data coming from the Loading story.
-    ...Loading.args,
-    loading: false,
-  },
+    decorators: [
+        (story) => (
+            
+                <MockStore
+                taskboxState={{...MockState, status: []}}
+                >
+                    {story()}
+                </MockStore>
+        )
+      ]
 };
