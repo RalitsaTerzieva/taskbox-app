@@ -7,16 +7,16 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const MockState = {
     tasks: [
-        { ...TaskStories.Default.args.task, id: '1', title: 'Task 1' },
-        { ...TaskStories.Default.args.task, id: '2', title: 'Task 2' },
-        { ...TaskStories.Default.args.task, id: '3', title: 'Task 3' },
-        { ...TaskStories.Default.args.task, id: '4', title: 'Task 4' },
-        { ...TaskStories.Default.args.task, id: '5', title: 'Task 5' },
-        { ...TaskStories.Default.args.task, id: '6', title: 'Task 6' },
+      { id: '1', title: 'Task 1', state: 'TASK_INBOX' },
+      { id: '2', title: 'Task 2', state: 'TASK_INBOX' },
+      { id: '3', title: 'Task 3', state: 'TASK_PINNED' },
+      { id: '4', title: 'Task 4', state: 'TASK_INBOX' },
+      { id: '5', title: 'Task 5', state: 'TASK_PINNED' },
+      { id: '6', title: 'Task 6', state: 'TASK_INBOX' }
     ],
     status: 'idle',
-    error: null,
-}
+    error: null
+  };
 
 // eslint-disable-next-line react/prop-types
 const MockStore = ({taskboxState, children}) => (
@@ -25,6 +25,8 @@ const MockStore = ({taskboxState, children}) => (
         initialState: taskboxState,
         reducer: {
             taskbox: createSlice({
+                name: 'taskbox',
+                initialState: taskboxState,
                 reducers: {
                     updateTaskState: (state, action) => {
                         const {id, newTaskState} = action.payload;
@@ -93,13 +95,17 @@ export const Loading  = {
 
 export const Empty  = {
     decorators: [
-        (story) => (
-            
-                <MockStore
-                taskboxState={{...MockState, status: []}}
-                >
-                    {story()}
-                </MockStore>
-        )
-      ]
-};
+      (story) => (
+        <MockStore
+          taskboxState={{
+            ...MockState,
+            tasks: [],
+            status: 'idle'
+          }}
+        >
+          {story()}
+        </MockStore>
+      )
+    ]
+  };
+  
