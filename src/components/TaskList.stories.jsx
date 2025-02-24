@@ -5,7 +5,7 @@ import * as TaskStories from './Task.stories';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-const MockState = {
+export const MockState = {
     tasks: [
       { id: '1', title: 'Task 1', state: 'TASK_INBOX' },
       { id: '2', title: 'Task 2', state: 'TASK_INBOX' },
