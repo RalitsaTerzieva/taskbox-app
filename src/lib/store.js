@@ -72,8 +72,10 @@ const TaskSlice = createSlice({
 export const {updateTaskState} = TaskSlice.actions;
 export const { addNewTask } = TaskSlice.actions;
 
-export const store = configureStore({
+const store = configureStore({
     reducer: {
         taskbox: TaskSlice.reducer
     },
-  })
+})
+
+export default store;
