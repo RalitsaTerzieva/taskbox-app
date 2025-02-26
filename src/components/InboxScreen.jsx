@@ -6,7 +6,7 @@ import { fetchTasks } from '../lib/store';
 
 import TaskList from './TaskList';
 
-import {AddNewTask} from './AddNewTask';
+// import {AddNewTask} from './AddNewTask';
 
 export default function InboxScreen() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function InboxScreen() {
   // The useEffect triggers the data fetching when the component is mounted
   useEffect(() => {
     dispatch(fetchTasks());
-  }, [dispatch]);
+  }, []);
 
   if (error) {
     return (
@@ -32,7 +32,7 @@ export default function InboxScreen() {
     <div className="page lists-show">
       <nav>
         <h1 className="title-page">Taskbox App</h1>
-        <AddNewTask />
+        {/* <AddNewTask /> */}
       </nav>
       <TaskList />
     </div>
