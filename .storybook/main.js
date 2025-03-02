@@ -6,7 +6,8 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/testing-library"
+    "@storybook/testing-library",
+    "@storybook/test-runner"
   ],
   framework: {
     name: "@storybook/react-vite",
