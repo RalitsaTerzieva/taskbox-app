@@ -25,7 +25,7 @@ export const Default = {
       handlers: [
         http.get(
           'https://jsonplaceholder.typicode.com/todos?userId=1',
-          (req, res, ctx) => {
+          () => {
             return HttpResponse.json(MockState.tasks);
           }
         ),
