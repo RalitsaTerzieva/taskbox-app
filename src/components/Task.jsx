@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 
 export default function Task({task: {id, title, state}, onArchiveTask, onPinTask}) {
-    const isPinnedOrInbox = state === "TASK_INBOX" || state === "TASK_PINNED";
+
+    const activeStates = ["TASK_INBOX", "TASK_PINNED"]; 
+    
+    const isPinnedOrInbox = activeStates.includes(state); 
+
     return (
         <div className={`list-item ${state}`}>
             <label htmlFor="checked" aria-label={`archivedTask-#${id}`} className="checkbox">
